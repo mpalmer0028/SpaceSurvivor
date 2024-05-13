@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddxa4qykg1qr6"]
+
+[ext_resource type="Shader" path="res://components/cusors/rainbow_over_time.gdshader" id="1_e3f0h"]
+[ext_resource type="Texture2D" uid="uid://m8gcmr0jgi6t" path="res://components/cusors/cursor_aim.png" id="2_1hfts"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sr3r"]
+shader = ExtResource("1_e3f0h")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_an8ot"]
+radius = 64.33
+
+[node name="ShipCursor" type="Area2D"]
+collision_layer = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3sr3r")
+texture = ExtResource("2_1hfts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_an8ot")

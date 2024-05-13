@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bp0q24ak0crnd"]
+
+[ext_resource type="Shader" path="res://components/cusors/rainbow_over_time.gdshader" id="1_f8w6i"]
+[ext_resource type="Texture2D" uid="uid://t2p8en3sxk0l" path="res://components/ship/textures/Main Ship - Base - Full health.png" id="1_gn2nv"]
+[ext_resource type="Script" path="res://components/ship/thrusters_component.gd" id="2_6t4ef"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_ef4kh"]
+[ext_resource type="Script" path="res://components/move_input_component.gd" id="3_niixp"]
+[ext_resource type="Texture2D" uid="uid://c01u6v310sygc" path="res://components/ship/engine/engines/Main Ship - Engines - Base Engine.png" id="3_v2c2k"]
+[ext_resource type="Script" path="res://components/point_towards_component.gd" id="4_0gu5g"]
+[ext_resource type="SpriteFrames" uid="uid://djjl881dxorvi" path="res://components/ship/engine/effects/engine_idle_sprite_frames.tres" id="4_sua8y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvtqx"]
+shader = ExtResource("1_f8w6i")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_745rm"]
+
+[node name="Ship" type="CharacterBody2D"]
+
+[node name="ThrustEffectSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_nvtqx")
+position = Vector2(-8, 1.42109e-14)
+rotation = 1.5708
+sprite_frames = ExtResource("4_sua8y")
+animation = &"thrust_high"
+
+[node name="EngineSprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, 0)
+rotation = 1.5708
+texture = ExtResource("3_v2c2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_745rm")
+
+[node name="ThrustersComp" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("2_6t4ef")
+move_component = NodePath("../MoveComp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_gn2nv")
+
+[node name="MoveComp" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_ef4kh")
+actor = NodePath("..")
+
+[node name="MoveInputComp" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("3_niixp")
+move_component = NodePath("../MoveComp")
+speed = 500.0
+
+[node name="PointTowardsComp" type="Node" parent="."]
+script = ExtResource("4_0gu5g")

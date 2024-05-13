@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://djjl881dxorvi"]
+
+[ext_resource type="Texture2D" uid="uid://ud4aoncm7m5d" path="res://components/ship/engine/effects/Main Ship - Engines - Base Engine - Idle.png" id="1_2br5w"]
+[ext_resource type="Texture2D" uid="uid://cbeugj0vdnt3v" path="res://components/ship/engine/effects/Main Ship - Engines - Base Engine - Powering.png" id="2_llld8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwqbv"]
+atlas = ExtResource("2_llld8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfpto"]
+atlas = ExtResource("2_llld8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abdj4"]
+atlas = ExtResource("2_llld8")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2pro"]
+atlas = ExtResource("2_llld8")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pifcw"]
+atlas = ExtResource("1_2br5w")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if8q3"]
+atlas = ExtResource("1_2br5w")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcnp4"]
+atlas = ExtResource("1_2br5w")
+region = Rect2(96, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"off",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwqbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfpto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abdj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2pro")
+}],
+"loop": true,
+"name": &"thrust_high",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pifcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if8q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcnp4")
+}],
+"loop": true,
+"name": &"thrust_low",
+"speed": 5.0
+}]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnksiqbglsqc8"]
+
+[ext_resource type="Texture2D" uid="uid://6jeob06wynr1" path="res://components/space/textures/space.png" id="1_bb33c"]
+[ext_resource type="Texture2D" uid="uid://dhwyjym5as7jr" path="res://components/space/textures/far_stars.png" id="2_nii70"]
+[ext_resource type="Texture2D" uid="uid://dsovpoqlr2wgq" path="res://components/space/textures/close_stars.png" id="3_n7olw"]
+
+[node name="Space" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.5, 0.5)
+
+[node name="SpaceLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(512, 512)
+
+[node name="Space" type="Sprite2D" parent="ParallaxBackground/SpaceLayer"]
+texture_repeat = 2
+scale = Vector2(4, 4)
+texture = ExtResource("1_bb33c")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 295, 170)
+
+[node name="FarStarsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(512, 512)
+
+[node name="FarStars" type="Sprite2D" parent="ParallaxBackground/FarStarsLayer"]
+texture_repeat = 2
+scale = Vector2(4, 4)
+texture = ExtResource("2_nii70")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 295, 170)
+
+[node name="CloseStarsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(512, 512)
+
+[node name="CloseStars" type="Sprite2D" parent="ParallaxBackground/CloseStarsLayer"]
+texture_repeat = 2
+scale = Vector2(4, 4)
+texture = ExtResource("3_n7olw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 295, 170)

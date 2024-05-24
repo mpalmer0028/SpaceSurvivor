@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddxa4qykg1qr6"]
 
-[ext_resource type="Shader" path="res://components/cusors/rainbow_over_time.gdshader" id="1_e3f0h"]
-[ext_resource type="Texture2D" uid="uid://m8gcmr0jgi6t" path="res://components/cusors/cursor_aim.png" id="2_1hfts"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sr3r"]
-shader = ExtResource("1_e3f0h")
+[ext_resource type="Script" path="res://components/cusors/ship_cursor_component.gd" id="1_e34kt"]
+[ext_resource type="Texture2D" uid="uid://m8gcmr0jgi6t" path="res://components/cusors/ship_cursor.png" id="2_1hfts"]
+[ext_resource type="Material" uid="uid://dxe2diblkm5b7" path="res://components/cusors/ship_cursor.material" id="2_ivc8w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_an8ot"]
 radius = 64.33
 
 [node name="ShipCursor" type="Area2D"]
 collision_layer = 8
+script = ExtResource("1_e34kt")
+color = Color(0.920859, 0.491832, 0.90393, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_3sr3r")
+material = ExtResource("2_ivc8w")
 texture = ExtResource("2_1hfts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

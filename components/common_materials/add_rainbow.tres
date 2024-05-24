@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cioje5wsm3a6m"]
+
+[ext_resource type="Shader" path="res://components/common_materials/add_rainbow.gdshader" id="1_6baj2"]
+
+[resource]
+shader = ExtResource("1_6baj2")
+shader_parameter/factor = 0.0

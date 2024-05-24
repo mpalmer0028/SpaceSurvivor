@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs6b3nnkhlyqx"]
+[gd_scene load_steps=8 format=3 uid="uid://bs6b3nnkhlyqx"]
 
 [ext_resource type="PackedScene" uid="uid://bnksiqbglsqc8" path="res://components/space/space.tscn" id="1_5bprg"]
 [ext_resource type="Script" path="res://Main.gd" id="1_gjc2h"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://camera.gd" id="4_1mb4f"]
 [ext_resource type="Texture2D" uid="uid://sejeommrelwy" path="res://components/ship/parts/Main Ship - Weapons/PNGs/Main Ship - Weapons - Zapper.png" id="5_861s4"]
 [ext_resource type="PackedScene" uid="uid://ddxa4qykg1qr6" path="res://components/cusors/ship_cursor.tscn" id="6_seldp"]
-[ext_resource type="Script" path="res://components/space/space.gd" id="8_41ej3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gjc2h")
@@ -53,7 +52,5 @@ layout_mode = 2
 text = "Mouse"
 label_settings = ExtResource("2_1gs16")
 
-[node name="Space" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_5bprg")]
+[node name="Space" parent="." instance=ExtResource("1_5bprg")]
 unique_name_in_owner = true
-script = ExtResource("8_41ej3")
-player = NodePath("../Ship")

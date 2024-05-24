@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://m8gcmr0jgi6t"
-path="res://.godot/imported/cursor_aim.png-b3dad913aa5a6f2a61145c07eee4247f.ctex"
+path="res://.godot/imported/ship_cursor.png-839d7857918613c34162d0cfd4b05173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/cusors/cursor_aim.png"
-dest_files=["res://.godot/imported/cursor_aim.png-b3dad913aa5a6f2a61145c07eee4247f.ctex"]
+source_file="res://components/cusors/ship_cursor.png"
+dest_files=["res://.godot/imported/ship_cursor.png-839d7857918613c34162d0cfd4b05173.ctex"]
 
 [params]
 

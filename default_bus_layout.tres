@@ -1,0 +1,23 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://gth2am6qkcao"]
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_ledqb"]
+resource_name = "Phaser"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_ldb5l"]
+resource_name = "Reverb"
+room_size = 0.38
+damping = 0.25
+dry = 0.47
+wet = 1.0
+
+[resource]
+bus/1/name = &"Dashing"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectPhaser_ledqb")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectReverb_ldb5l")
+bus/1/effect/1/enabled = true

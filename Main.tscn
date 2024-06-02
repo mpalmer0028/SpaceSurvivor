@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs6b3nnkhlyqx"]
+[gd_scene load_steps=11 format=3 uid="uid://bs6b3nnkhlyqx"]
 
 [ext_resource type="PackedScene" uid="uid://bnksiqbglsqc8" path="res://components/space/space.tscn" id="1_5bprg"]
 [ext_resource type="Script" path="res://Main.gd" id="1_gjc2h"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://sejeommrelwy" path="res://components/ship/parts/Main Ship - Weapons/PNGs/Main Ship - Weapons - Zapper.png" id="5_861s4"]
 [ext_resource type="PackedScene" uid="uid://ddxa4qykg1qr6" path="res://components/cusors/ship_cursor.tscn" id="6_seldp"]
 [ext_resource type="Script" path="res://components/space/space.gd" id="8_41ej3"]
+[ext_resource type="PackedScene" uid="uid://c6qsar6pv5qge" path="res://components/space/space_junk/asteroid.tscn" id="9_ghgpj"]
+[ext_resource type="Script" path="res://components/world/world_manager.gd" id="10_ktapc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gjc2h")
@@ -57,3 +59,18 @@ label_settings = ExtResource("2_1gs16")
 unique_name_in_owner = true
 script = ExtResource("8_41ej3")
 player = NodePath("../Ship")
+
+[node name="Asteroid" parent="." instance=ExtResource("9_ghgpj")]
+position = Vector2(-199, 144)
+
+[node name="Asteroid2" parent="." instance=ExtResource("9_ghgpj")]
+position = Vector2(135, 130)
+
+[node name="Asteroid3" parent="." instance=ExtResource("9_ghgpj")]
+position = Vector2(-255, -148)
+
+[node name="Asteroid4" parent="." instance=ExtResource("9_ghgpj")]
+position = Vector2(66, -159)
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("10_ktapc")

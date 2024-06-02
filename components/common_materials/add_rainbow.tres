@@ -3,5 +3,6 @@
 [ext_resource type="Shader" path="res://components/common_materials/add_rainbow.gdshader" id="1_6baj2"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_6baj2")
 shader_parameter/factor = 0.0

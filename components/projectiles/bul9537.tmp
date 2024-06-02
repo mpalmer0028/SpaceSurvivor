@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvwwh3fxowulv"]
+
+[ext_resource type="Script" path="res://components/projectiles/bullet_component.gd" id="1_aq2x1"]
+[ext_resource type="Material" uid="uid://cioje5wsm3a6m" path="res://components/common_materials/add_rainbow.tres" id="2_m56u1"]
+[ext_resource type="Texture2D" uid="uid://bkvvgo0bi27pr" path="res://components/projectiles/bullet0.png" id="3_yj6kh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6by4a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kppw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yj6kh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_aq2x1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6by4a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_m56u1")
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_kppw6")

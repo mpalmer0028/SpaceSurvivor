@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6qsar6pv5qge"]
+
+[ext_resource type="SpriteFrames" uid="uid://cbl25n8ex53jf" path="res://components/space/space_junk/asteroid.tres" id="1_kkpfk"]
+[ext_resource type="Script" path="res://components/space/space_junk/space_junk.gd" id="1_xlxe4"]
+[ext_resource type="Script" path="res://components/damageable_component.gd" id="3_3dhvr"]
+[ext_resource type="AudioStream" uid="uid://c4wke3s47n14n" path="res://sounds/ROCKCrsh_explo_debris_pebbles_medium_short_05.wav" id="4_rtmeb"]
+[ext_resource type="AudioStream" uid="uid://b3m4qd60jvtax" path="res://sounds/EXPLDsgn_explo_sweetener_distorted_crunch_03.wav" id="5_14nuv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4phok"]
+
+[node name="Asteroid" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 31
+mass = 10.0
+script = ExtResource("1_xlxe4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4phok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_kkpfk")
+animation = &"destroy"
+
+[node name="DamageableComp" type="Node2D" parent="."]
+script = ExtResource("3_3dhvr")
+hit_sound = ExtResource("4_rtmeb")
+destroy_sound = ExtResource("5_14nuv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="DamageableComp" method="_on_audio_stream_player_2d_finished"]

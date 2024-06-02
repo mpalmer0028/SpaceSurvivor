@@ -1,0 +1,86 @@
+[gd_scene load_steps=17 format=3 uid="uid://bp0q24ak0crnd"]
+
+[ext_resource type="Shader" path="res://components/cusors/rainbow_over_time.gdshader" id="1_f8w6i"]
+[ext_resource type="Texture2D" uid="uid://t2p8en3sxk0l" path="res://components/ship/textures/Main Ship - Base - Full health.png" id="1_gn2nv"]
+[ext_resource type="Script" path="res://components/ship/thrusters_component.gd" id="2_6t4ef"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_ef4kh"]
+[ext_resource type="Script" path="res://components/move_input_component.gd" id="3_niixp"]
+[ext_resource type="Texture2D" uid="uid://c01u6v310sygc" path="res://components/ship/engine/engines/Main Ship - Engines - Base Engine.png" id="3_v2c2k"]
+[ext_resource type="SpriteFrames" uid="uid://djjl881dxorvi" path="res://components/ship/engine/effects/engine_idle_sprite_frames.tres" id="4_sua8y"]
+[ext_resource type="Material" uid="uid://cioje5wsm3a6m" path="res://components/common_materials/add_rainbow.tres" id="5_oy0aw"]
+[ext_resource type="Script" path="res://components/ship/aim_component.gd" id="8_mmis4"]
+[ext_resource type="AudioStream" uid="uid://bgf7ljdnaql60" path="res://sounds/TOONImpt_Cartoon Comedy Springy Boing Impact 04.wav" id="9_bf8fc"]
+[ext_resource type="Script" path="res://components/ship/gun_component.gd" id="11_8oica"]
+[ext_resource type="AudioStream" uid="uid://bakq8ad0knsn7" path="res://sounds/LASRGun_Laser Gun Blast 05.wav" id="12_58i18"]
+[ext_resource type="PackedScene" uid="uid://cvwwh3fxowulv" path="res://components/projectiles/bullet.tscn" id="12_wuyl3"]
+[ext_resource type="Script" path="res://components/after_image.gd" id="13_al00w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvtqx"]
+shader = ExtResource("1_f8w6i")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_745rm"]
+
+[node name="Ship" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="ThrustEffectSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_nvtqx")
+position = Vector2(-8, 1.42109e-14)
+rotation = 1.5708
+sprite_frames = ExtResource("4_sua8y")
+animation = &"thrust_high"
+
+[node name="EngineSprite2D" type="Sprite2D" parent="."]
+material = ExtResource("5_oy0aw")
+position = Vector2(-6, 0)
+rotation = 1.5708
+texture = ExtResource("3_v2c2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_745rm")
+
+[node name="ThrustersComp" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("2_6t4ef")
+move_component = NodePath("../MoveComp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("5_oy0aw")
+rotation = 1.5708
+texture = ExtResource("1_gn2nv")
+
+[node name="MoveComp" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_ef4kh")
+actor = NodePath("..")
+
+[node name="MoveInputComp" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("3_niixp")
+move_component = NodePath("../MoveComp")
+
+[node name="AimComp" type="Node2D" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("8_mmis4")
+move_component = NodePath("../MoveComp")
+
+[node name="DashAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_bf8fc")
+bus = &"Dashing"
+
+[node name="GunComp" type="Node2D" parent="."]
+position = Vector2(13.875, 0)
+rotation = 1.5708
+script = ExtResource("11_8oica")
+bullet = ExtResource("12_wuyl3")
+
+[node name="BulletInstancingPoint" type="Marker2D" parent="GunComp"]
+position = Vector2(0, -11.6)
+
+[node name="GunAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GunComp"]
+position = Vector2(6.06496e-07, 13.875)
+rotation = -1.5708
+stream = ExtResource("12_58i18")
+bus = &"Shooting"
+
+[node name="AfterImage" type="Node2D" parent="." node_paths=PackedStringArray("colliders", "sprites")]
+script = ExtResource("13_al00w")
+colliders = [NodePath("../CollisionShape2D")]
+sprites = [NodePath("../Sprite2D"), NodePath("../EngineSprite2D")]

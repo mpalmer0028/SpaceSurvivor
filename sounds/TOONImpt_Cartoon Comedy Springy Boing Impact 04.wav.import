@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgf7ljdnaql60"
+path="res://.godot/imported/TOONImpt_Cartoon Comedy Springy Boing Impact 04.wav-c9d0ada91730d41d47a5a795d9dd986d.sample"
+
+[deps]
+
+source_file="res://sounds/TOONImpt_Cartoon Comedy Springy Boing Impact 04.wav"
+dest_files=["res://.godot/imported/TOONImpt_Cartoon Comedy Springy Boing Impact 04.wav-c9d0ada91730d41d47a5a795d9dd986d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

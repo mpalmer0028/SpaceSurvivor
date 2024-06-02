@@ -1,0 +1,76 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://cbl25n8ex53jf"]
+
+[ext_resource type="Texture2D" uid="uid://2uraoklax370" path="res://components/space/space_junk/Asteroid 01 - Base.png" id="1_qvgwe"]
+[ext_resource type="Texture2D" uid="uid://clk7s0ae3g455" path="res://components/space/space_junk/Asteroid 01 - Explode.png" id="2_qwx0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps4nv"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m31gw"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e3qv"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd3fa"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f5ly"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73niw"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjcdj"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7bks"]
+atlas = ExtResource("2_qwx0m")
+region = Rect2(672, 0, 96, 96)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qvgwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps4nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m31gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e3qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd3fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f5ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73niw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjcdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7bks")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
+}]

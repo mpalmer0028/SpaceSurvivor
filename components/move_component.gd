@@ -16,7 +16,8 @@ func _process(delta):
 func _physics_process(delta):
 	is_dashing = dashing_end > Time.get_ticks_msec()
 	if is_dashing:			
-		actor.translate(dash_vector * delta*5)
+		actor.translate(dash_vector * delta*2.5)		
 	else:		
 		actor.translate(velocity * delta)	
+	
 

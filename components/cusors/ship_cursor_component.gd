@@ -20,7 +20,6 @@ func _notification(what: int) -> void:
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Sprite2D.material.set_shader_parameter("color", color.to_rgba32())
-	
 
 func reposition_cusor(offset:Vector2):
 	if aim_component.mouse_aim_mode == aim_component.AimModes.MOUSE:
